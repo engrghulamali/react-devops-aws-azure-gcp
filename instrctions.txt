@@ -1,0 +1,64 @@
+static website deployment on multi-clouds
+01 - azure
+        => services setup
+            resource group -> react-web-rg
+            
+                note: set a inbound rules also, 22, 80 & 443(if plan ssl)
+
+            virtual machine -> react-portfolio-web-vm
+            sudo ssh -i azure-react-portfolio-web-vm_key.pem azureuser@98.70.30.100
+
+        => git & node installation
+            sudo apt update && sudo apt upgrade -y
+
+            sudo apt install -y curl git
+
+            curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+            sudo apt install -y nodejs build-essential
+
+            # Verify installation
+                node -v
+                npm -v
+
+            #project permission setup
+            # Change ownership to azureuser (recursively for all files)
+                sudo chown -R azureuser:azureuser /var/www/html/react-devops-aws-azure-gcp
+
+            # Set safe permissions for directories and files
+                find /var/www/html/react-devops-aws-azure-gcp -type d -exec chmod 755 {} \;
+                find /var/www/html/react-devops-aws-azure-gcp -type f -exec chmod 644 {} \;
+
+            #installation
+                # Install dependencies (ignore peer deps conflicts for React 17)
+                npm install --legacy-peer-deps
+
+            # Build React app
+                npm run build
+
+            #nginx setup
+                sudo apt install nginx -y
+
+            #default conf file setp
+                sudo rm /etc/nginx/sites-enabled/default
+                sudo nano /etc/nginx/sites-available/react-site
+
+            #paste this
+                server {
+                    listen 80;
+                    server_name _;
+
+                    root /home/azureuser/react-devops-aws-azure-gcp/build;
+                    index index.html;
+
+                    location / {
+                        try_files $uri /index.html;
+                    }
+                }
+
+            # Restart nginx
+                sudo ln -s /etc/nginx/sites-available/react-site /etc/nginx/sites-enabled/
+                sudo nginx -t
+                sudo systemctl restart nginx
+
+  
