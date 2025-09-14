@@ -1,6 +1,7 @@
 # Portfolio of Engr Ghulam Ali
 
-<img src ="https://github.com/CodeVinayak/CodeVinayak/blob/5920a79f4c5977332a67caf91125241cf0fc46b5/www.vinayaksingh.in.png" style="display:none;"/>
+<img src="./public/Images/project-home-page.png" alt="Project Home Page" width="600"/>
+
 
 # 🌐 React Multi-Cloud DevOps Project
 
@@ -152,7 +153,7 @@ flowchart TD
 ---
 
 ## 🧑‍💻 Author
-**Your Name**  
-🔗 [LinkedIn](https://linkedin.com/in/yourprofile) | [GitHub](https://github.com/your-username)
+**Engr Ghulam Ali**  
+🔗 [LinkedIn](https://www.linkedin.com/in/engr-ghulam-ali-548686176) | [GitHub](https://github.com/engrghulamali)
 
 ---
