@@ -24,3 +24,34 @@ yarn-error.log*
 
 .vercel
 yarn.lock
+
+
+# Local .terraform directories
+**/.terraform/*
+.terraform.lock.hcl
+.userdata.tpl.swp
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually local only
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore variable files containing sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+
+# ssh keys
+portfolio-key
+portfolio-key.pub

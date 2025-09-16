@@ -1,0 +1,23 @@
+A)- aws
+    Step 1: Install AWS CLI (on Ubuntu/Linux)
+
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+      aws --version
+
+    Step 2: aws configure
+      aws configure
+      AWS Access Key ID → from your AWS IAM user
+      AWS Secret Access Key → from your AWS IAM user
+      Default region → (same as in Terraform, e.g. us-east-1)
+      Default output format → (leave blank or json)
+
+    step 3: Verify Setup
+      aws sts get-caller-identity
+    
+terraform commands
+  terraform init
+  terraform plan
+  terraform destroy -auto-approve
+  terraform output
